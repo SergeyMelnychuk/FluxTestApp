@@ -41,7 +41,7 @@ class TasklistsPage extends React.Component{
                         <Divider />
                         <List className='TasklistsPage__list' subheader="Task Lists">                                
                             {
-                                this.state.taskLists.map(list =>
+                                this.props.taskLists.map(list =>
                                     <ListItem
                                         key={list.id}
                                         leftIcon={<FolderIcon />}
@@ -73,5 +73,7 @@ class TasklistsPage extends React.Component{
         );
     }  
 }
-
+TasklistsPage.contextTypes = {    
+    router: PropTypes.object.isRequired
+};
 export default TasklistsPage;

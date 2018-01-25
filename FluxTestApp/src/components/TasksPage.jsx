@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import TasksActions from '../actions/TasksActions';
 import TasksStore from '../stores/TasksStore';
 import IconButton from 'material-ui/IconButton';
+import ActionDelete from 'material-ui/svg-icons/action/delete';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import CircularProgress from 'material-ui/CircularProgress';
 
 import Task from './Task.jsx';
 import TaskCreateModal from './TaskCreateModal.jsx';
@@ -23,11 +25,11 @@ class TasksPage extends React.Component {
         this.setState({
             isEditingTaskList: true
         }, () => this.taskList.focus() );
-    },
+    }
 
     handleSubmitTaskList() {
         this.saveTaskList();
-    },
+    }
 
     handleTaskListEditKeyDown(e) {
         if (e.keyCode === ENTER_KEY) {
@@ -37,7 +39,7 @@ class TasksPage extends React.Component {
         if (e.keyCode === ESC_KEY) {
             this.cancelEditingTaskList();
         }
-    },
+    }
 
     saveTaskList() {
         this.props.onUpdateTaskList({
@@ -45,11 +47,11 @@ class TasksPage extends React.Component {
         });
 
         this.cancelEditingTaskList();
-    },
+    }
 
     cancelEditingTaskList() {
         this.setState({ isEditingTaskList: false });
-    },
+    }
 
     renderTasks() {
         return (
@@ -70,7 +72,7 @@ class TasksPage extends React.Component {
                 }
             </div>
         );
-    },
+    }
 
     render() {
         if (this.props.error) {
@@ -116,10 +118,10 @@ class TasksPage extends React.Component {
                 </div>
 
                 {
-                    this.props.isLoadingTasks
-                    ?
-                        <CircularProgress />
-                    :
+                    // this.props.isLoadingTasks
+                    // ?
+                    //     <CircularProgress />
+                    // :
                         this.renderTasks()
                 }
             </div>

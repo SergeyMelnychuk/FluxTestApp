@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import TaskListsStore from '../stores/TaskListsStore';
 import TaskListsActions from '../actions/TaskListsActions';
 
@@ -35,7 +35,7 @@ class TasklistsPageContainer extends React.Component{
         this.setState({ isCreatingTaskList : true });
     }
 
-    handleClose() {
+    handleTaskListCreateModalClose() {
         this.setState({ isCreatingTaskList : false });
     }
 
@@ -50,10 +50,10 @@ class TasklistsPageContainer extends React.Component{
             <div>
                 <TasklistsPage
                     taskLists={this.state.taskLists}
-                    selectedListId={this.props.params.id}
+                    selectedListId={this.props.match.params.id}
                     page={this.props.children}
                     onAddTaskList={this.handleAddTaskList.bind(this)}
-                    onLogOut={this.onLogOut.bind(this)}
+                    onLogOut={this.onLogOut}
                 />
 
                 <TaskListCreateModal

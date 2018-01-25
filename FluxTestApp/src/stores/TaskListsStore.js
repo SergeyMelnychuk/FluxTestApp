@@ -9,6 +9,7 @@ import AppConstants from '../constants/AppConstants';
 const CHANGE_EVENT = 'change';
 
 let _taskLists = [];
+let _currentTaskList = null;
 let _error = null;
 
 function formatTaskList(data) {
@@ -21,6 +22,10 @@ function formatTaskList(data) {
 const TaskListsStore = Object.assign({}, EventEmitter.prototype, {   
     getTaskLists() {
         return _taskLists;
+    },
+
+    getCurrentTaskList() {
+        return _currentTaskList;
     },
 
     emitChange() {

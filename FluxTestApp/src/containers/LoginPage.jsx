@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import SessionStore from '../stores/SessionStore';
 import SessionActions from '../actions/SessionActions';
 

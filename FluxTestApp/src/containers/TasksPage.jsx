@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import TasksActions from '../actions/TasksActions';
 import TaskListsActions from '../actions/TaskListsActions';
 import TasksStore from '../stores/TasksStore';
@@ -10,7 +10,10 @@ import TaskCreateModal from '../components/TaskCreateModal.jsx';
 
 function getStateFromFlux() {
     return {
-        tasks: TasksStore.getTasks()
+        tasks: TasksStore.getTasks(),
+        error: TasksStore.getError(),
+        isLoadingTasks: TasksStore.isLoadingTasks(),
+        taskList: TaskListsStore.getCurrentTaskList() || {}
     };
 }
 class TasksPageContainer extends React.Component {
@@ -38,7 +41,7 @@ class TasksPageContainer extends React.Component {
         TasksStore.removeChangeListener(this._onChange.bind(this));
     }
 
-    handleStatusChange(taskId, { isCompleted }) {
+    handleTaskStatusChange(taskId, { isCompleted }) {
         TasksActions.updateTaskStatus({
             taskListId: this.props.match.params.id,
             taskId: taskId,
@@ -51,6 +54,13 @@ class TasksPageContainer extends React.Component {
             taskListId: this.props.match.params.id,
             taskId: taskId,
             text: text
+        });
+    }
+
+    handleTaskDelete(taskId) {
+        TasksActions.deleteTask({
+            taskListId: this.props.params.id,
+            taskId: taskId
         });
     }
 
@@ -81,7 +91,8 @@ class TasksPageContainer extends React.Component {
             });
         }
 
-        this.context.router.push('/lists');
+        
+        this.context.router.history.push('/lists');
     }
 
     handleUpdateTaskList({ name }) {
