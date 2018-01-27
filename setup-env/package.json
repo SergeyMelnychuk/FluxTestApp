@@ -1,0 +1,15 @@
+{
+  "name": "setup-env",
+  "version": "1.0.0",
+  "description": "setup env",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sergey Melnychuk <sergiomelnychuk@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}
