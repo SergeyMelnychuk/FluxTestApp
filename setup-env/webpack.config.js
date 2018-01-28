@@ -45,8 +45,8 @@ const webpackConfig = {
 		]
 	},
 	resolve: {
-		alias: {
-			//'components': path.resolve(__dirname, './src/components')			
+		alias: {			
+			Containers: path.resolve(__dirname, './src/containers')		
 		}
 	},
 	plugins: [
@@ -59,7 +59,7 @@ const webpackConfig = {
         //will write into console log what file or module was modified
         new webpack.NamedModulesPlugin(),
         //refresh content without refresh
-		new webpack.HotModuleReplacementPlugin() 
+		new webpack.HotModuleReplacementPlugin()
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, './dist'),

@@ -1,8 +1,11 @@
 {
-	'presets': [
-		['es2015', { 'modules': false }],
-		'react',
-		'stage-0',
-		'react-hmre'
+	"presets": [
+		["es2015", { "modules": false }],
+		"react",
+		"stage-0"
+	],
+	"plugins": [
+		"react-html-attrs",
+		"react-hot-loader/babel"
 	]
 }
