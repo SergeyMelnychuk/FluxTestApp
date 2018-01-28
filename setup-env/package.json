@@ -1,11 +1,11 @@
 {
-  "name": "setup-env",
+  "name": "chat_3",
   "version": "1.0.0",
-  "description": "setup env",
+  "description": "chat 3",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devserver": "webpack-dev-server --port 8090 --host 127.0.0.1"
+    "devserver": "webpack-dev-server --progress --colors --port 8090 --host 127.0.0.1"
   },
   "author": "Sergey Melnychuk <sergiomelnychuk@gmail.com>",
   "license": "ISC",
@@ -32,7 +32,11 @@
     "url-loader": "0.6.2"
   },
   "dependencies": {
+    "babel-plugin-react-html-attrs": "2.1.0",
+    "eslint-plugin-import": "2.8.0",
     "react": "16.2.0",
-    "react-dom": "16.2.0"
+    "react-dom": "16.2.0",
+    "react-redux": "5.0.6",
+    "redux": "3.7.2"
   }
 }

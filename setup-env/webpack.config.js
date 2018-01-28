@@ -6,6 +6,7 @@ const outputPath = path.resolve(__dirname, './dist')
 const webpackConfig = {
 	entry: {
 		app: [
+			'react-hot-loader/patch',
 			path.resolve(__dirname, './src/index.js')
 		]
 	},
@@ -15,6 +16,12 @@ const webpackConfig = {
 	},
 	module: {
 		rules: [
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				enforce: 'pre',
+				use: 'eslint-loader'
+			},
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
@@ -36,6 +43,11 @@ const webpackConfig = {
 				use: 'url-loader?limit=10000&name=assets/[name]-[hash].[ext]'
 			}
 		]
+	},
+	resolve: {
+		alias: {
+			//'components': path.resolve(__dirname, './src/components')			
+		}
 	},
 	plugins: [
         //adds bundle scripts src into the buttom of the page
