@@ -46,7 +46,10 @@ const webpackConfig = {
 	},
 	resolve: {
 		alias: {			
-			Containers: path.resolve(__dirname, './src/containers')		
+			containers: path.resolve(__dirname, './src/containers'),
+			store: path.resolve(__dirname, './src/store'),
+			reducers: path.resolve(__dirname, './src/reducers'),
+			assets: path.resolve(__dirname, './src/assets') 
 		}
 	},
 	plugins: [
