@@ -6,6 +6,7 @@ const outputPath = path.resolve(__dirname, './dist')
 const webpackConfig = {
 	entry: {
 		app: [
+			'react-hot-loader/patch',
 			path.resolve(__dirname, './src/index.js')
 		]
 	},
@@ -43,6 +44,16 @@ const webpackConfig = {
 			}
 		]
 	},
+	resolve: {
+		alias: {			
+			containers:	path.resolve(__dirname, './src/containers'),
+			components: path.resolve(__dirname, './src/components'),
+			actions: path.resolve(__dirname, './src/actions'),
+			reducers: path.resolve(__dirname, './src/reducers'),
+			store: path.resolve(__dirname, './src/store'),
+			assets:	path.resolve(__dirname, './src/assets')
+		}
+	},
 	plugins: [
         //adds bundle scripts src into the buttom of the page
 		new HtmlWebpackPlugin({
@@ -53,7 +64,7 @@ const webpackConfig = {
         //will write into console log what file or module was modified
         new webpack.NamedModulesPlugin(),
         //refresh content without refresh
-		new webpack.HotModuleReplacementPlugin() 
+		new webpack.HotModuleReplacementPlugin()
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, './dist'),
